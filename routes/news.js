@@ -16,8 +16,8 @@ import cloudinary from '../config/cloudinary.js';
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'portal-berita', // nama folder di Cloudinary
-    allowed_formats: ['jpg', 'png', 'jpeg'],
+    folder: 'portal-berita' // nama folder di Cloudinary
+    
   },
 });
 const upload = multer({ storage });

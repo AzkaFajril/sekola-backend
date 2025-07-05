@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 
 const prestasiSchema = new mongoose.Schema({
     title: { type: String, required: true },
-    description: String,
-    content: String,
+    description: { type: String, required: false },
+    content: { type: String, required: false },
     image: String,
     author: String,
     level: String,
