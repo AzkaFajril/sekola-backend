@@ -1,12 +1,13 @@
 import express from "express";
-import { getAllStaffGuru, createStaffGuru, deleteStaffGuru, updateStaffGuru } from "../controllers/staffGuruController.js";
+import { getAllStaffGuru, getStaffGuruById, createStaffGuru, updateStaffGuru, deleteStaffGuru } from "../controllers/staffGuruController.js";
 import upload from "../multerCloudinary.js"; // jika pakai upload foto
 
 const router = express.Router();
 
 router.get("/", getAllStaffGuru);
+router.get("/:id", getStaffGuruById);
 router.post("/", upload.single("foto"), createStaffGuru);
-router.delete("/:id", deleteStaffGuru);
 router.put("/:id", upload.single("foto"), updateStaffGuru);
+router.delete("/:id", deleteStaffGuru);
 
 export default router;

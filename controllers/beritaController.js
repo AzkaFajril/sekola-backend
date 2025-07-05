@@ -1,11 +1,8 @@
-// Import models jika diperlukan
-// import StaffGuru from '../models/StaffGuru.js';
-
-// Get all staff/guru
-export const getAllStaffGuru = async (req, res) => {
+// Berita/Artikel Controller
+export const getAllBerita = async (req, res) => {
     try {
         res.status(200).json({ 
-            message: "Get all staff/guru",
+            message: "Get all berita",
             data: []
         });
     } catch (error) {
@@ -13,12 +10,11 @@ export const getAllStaffGuru = async (req, res) => {
     }
 };
 
-// Get staff/guru by ID
-export const getStaffGuruById = async (req, res) => {
+export const getBeritaById = async (req, res) => {
     try {
         const { id } = req.params;
         res.status(200).json({ 
-            message: `Get staff/guru with ID: ${id}`,
+            message: `Get berita with ID: ${id}`,
             data: {}
         });
     } catch (error) {
@@ -26,11 +22,10 @@ export const getStaffGuruById = async (req, res) => {
     }
 };
 
-// Create new staff/guru
-export const createStaffGuru = async (req, res) => {
+export const createBerita = async (req, res) => {
     try {
         res.status(201).json({ 
-            message: "Staff/Guru created successfully",
+            message: "Berita created successfully",
             data: req.body
         });
     } catch (error) {
@@ -38,12 +33,11 @@ export const createStaffGuru = async (req, res) => {
     }
 };
 
-// Update staff/guru
-export const updateStaffGuru = async (req, res) => {
+export const updateBerita = async (req, res) => {
     try {
         const { id } = req.params;
         res.status(200).json({ 
-            message: `Staff/Guru with ID: ${id} updated`,
+            message: `Berita with ID: ${id} updated`,
             data: req.body
         });
     } catch (error) {
@@ -51,14 +45,13 @@ export const updateStaffGuru = async (req, res) => {
     }
 };
 
-// Delete staff/guru
-export const deleteStaffGuru = async (req, res) => {
+export const deleteBerita = async (req, res) => {
     try {
         const { id } = req.params;
         res.status(200).json({ 
-            message: `Staff/Guru with ID: ${id} deleted`
+            message: `Berita with ID: ${id} deleted`
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
-};
+}; 
