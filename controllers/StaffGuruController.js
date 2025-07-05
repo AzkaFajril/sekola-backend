@@ -1,6 +1,4 @@
 // Import models jika diperlukan
-// import StaffGuru from '../models/StaffGuru.js';
-
 // Get all staff/guru
 export const getAllStaffGuru = async (req, res) => {
     try {
