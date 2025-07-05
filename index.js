@@ -9,9 +9,13 @@ import bcrypt from 'bcryptjs';
 import prestasiRoutes from './routes/prestasi.js';
 import bannerRoutes from "./routes/banner.js";
 import staffGuruRoutes from "./routes/StaffGuru.js";
-
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 app.use(cors());
@@ -42,7 +46,7 @@ mongoose.connect(MONGO_URI, {
 .catch((err) => console.error('MongoDB connection error:', err));
 
 app.get('/', (req, res) => {
-  res.send('Portal Berita Backend Running');
+  res.json({ message: 'Backend is running!' });
 });
 
 app.use('/api/auth', authRoutes);
@@ -84,3 +88,23 @@ app.listen(PORT, () => {
 app.use('/api/prestasi', prestasiRoutes);
 app.use("/api/banner", bannerRoutes);
 app.use("/api/staff-guru", staffGuruRoutes);
+
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API is working!' });
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Something went wrong!' });
+});
+
+// Export untuk Vercel
+export default app;
+
+// Hanya jalankan server jika file dijalankan langsung
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
