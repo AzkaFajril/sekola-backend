@@ -6,7 +6,7 @@ import authRoutes from './routes/auth.js';
 import newsRoutes from './routes/news.js';
 import { MongoClient } from 'mongodb';
 import bcrypt from 'bcryptjs';
-import prestasiRoutes from './routes/prestasi.js';
+import prestasiRoutes from './routes/Prestasi.js';
 import bannerRoutes from "./routes/banner.js";
 import staffGuruRoutes from "./routes/StaffGuru.js";
 import { fileURLToPath } from 'url';
