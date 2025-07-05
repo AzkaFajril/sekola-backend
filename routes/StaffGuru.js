@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllStaffGuru, getStaffGuruById, createStaffGuru, updateStaffGuru, deleteStaffGuru } from "../controllers/staffGuruController.js";
+import { getAllStaffGuru, getStaffGuruById, createStaffGuru, updateStaffGuru, deleteStaffGuru } from "../controllers/staffGuruController";
 import upload from "../multerCloudinary.js"; // jika pakai upload foto
 
 const router = express.Router();
